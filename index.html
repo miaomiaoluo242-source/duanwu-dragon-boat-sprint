@@ -14,25 +14,34 @@
         <span>粽</span>
         <span>舟</span>
       </div>
-      <p class="eyebrow">端午安康 · 龙舟竞渡</p>
+      <p class="eyebrow">端午安康 · 双人龙舟 PK</p>
       <h1 id="page-title">端午节龙舟冲刺</h1>
-      <p class="intro">点击划桨，让龙舟冲向终点，收集粽子获得加分。</p>
+      <p class="intro">两位玩家确认准备后，3、2、1 同时开划。赛道更长，粽子能加分，浪花障碍会拖慢节奏。</p>
     </section>
 
-    <section class="game-panel" aria-label="龙舟冲刺游戏">
+    <section class="game-panel" aria-label="双人龙舟冲刺游戏">
       <div class="scoreboard" aria-live="polite">
-        <div class="stat">
-          <span class="stat-label">当前分数</span>
-          <strong id="score">0</strong>
+        <div class="stat racer-stat red-stat">
+          <span class="stat-label">红队距离</span>
+          <strong><span id="p1Distance">0</span>m</strong>
+          <small id="p1Status">待准备</small>
         </div>
-        <div class="stat">
-          <span class="stat-label">倒计时</span>
-          <strong><span id="time">20</span>s</strong>
+        <div class="stat race-clock">
+          <span class="stat-label">比赛用时</span>
+          <strong><span id="raceTime">0.0</span>s</strong>
+          <small id="raceState">等待准备</small>
         </div>
-        <div class="stat">
-          <span class="stat-label">冲刺进度</span>
-          <strong><span id="progress">0</span>%</strong>
+        <div class="stat racer-stat blue-stat">
+          <span class="stat-label">青队距离</span>
+          <strong><span id="p2Distance">0</span>m</strong>
+          <small id="p2Status">待准备</small>
         </div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-pill red-pill">红队分数 <strong id="p1Score">0</strong></div>
+        <div class="track-length">长赛道 180m</div>
+        <div class="score-pill blue-pill">青队分数 <strong id="p2Score">0</strong></div>
       </div>
 
       <div class="river-wrap">
@@ -52,17 +61,32 @@
             <span></span>
           </div>
 
+          <div class="lane-name lane-name-one">红队</div>
+          <div class="lane-name lane-name-two">青队</div>
+          <div class="lane-divider" aria-hidden="true"></div>
+
+          <div id="trackItems" class="track-items" aria-hidden="true"></div>
+
           <div class="finish-line" aria-label="终点线">
             <span>终点</span>
           </div>
 
-          <button class="zongzi hidden" id="zongzi" type="button" aria-label="粽子奖励">
-            <span class="zongzi-shape"></span>
-            <span class="zongzi-text">+5</span>
-          </button>
+          <div class="countdown hidden" id="countdown" aria-live="assertive"></div>
 
-          <div class="dragon-boat" id="boat" aria-label="龙舟">
+          <div class="dragon-boat boat-red" id="p1Boat" aria-label="红队龙舟">
             <div class="dragon-head" aria-hidden="true">🐲</div>
+            <div class="boat-body">
+              <span class="paddler">🧑</span>
+              <span class="paddle paddle-one"></span>
+              <span class="paddler">🧑</span>
+              <span class="paddle paddle-two"></span>
+              <span class="paddler">🧑</span>
+            </div>
+            <div class="dragon-tail" aria-hidden="true">🎏</div>
+          </div>
+
+          <div class="dragon-boat boat-blue" id="p2Boat" aria-label="青队龙舟">
+            <div class="dragon-head" aria-hidden="true">🐉</div>
             <div class="boat-body">
               <span class="paddler">🧑</span>
               <span class="paddle paddle-one"></span>
@@ -83,17 +107,26 @@
       </div>
 
       <div class="message-area" id="message" aria-live="assertive">
-        准备好了吗？按下开始，和龙舟一起出发！
+        两位选手都准备好后，龙舟赛自动倒计时开跑。
+      </div>
+
+      <div class="controls ready-controls">
+        <button class="ready-btn red-ready" id="p1ReadyBtn" type="button">红队准备</button>
+        <button class="ready-btn blue-ready" id="p2ReadyBtn" type="button">青队准备</button>
+      </div>
+
+      <div class="controls paddle-controls">
+        <button class="paddle-btn red-paddle" id="p1PaddleBtn" type="button" disabled>红队划一下</button>
+        <button class="paddle-btn blue-paddle" id="p2PaddleBtn" type="button" disabled>青队划一下</button>
       </div>
 
       <div class="controls">
-        <button class="primary-btn" id="startBtn" type="button">开始游戏</button>
-        <button class="paddle-btn" id="paddleBtn" type="button" disabled>划一下</button>
+        <button class="reset-btn" id="resetBtn" type="button">重新开局</button>
       </div>
     </section>
 
     <section class="blessing" aria-label="端午祝福">
-      <span>愿你一举夺魁</span>
+      <span>并肩竞渡</span>
       <span>粽香满怀</span>
       <span>端午安康</span>
     </section>
