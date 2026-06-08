@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节龙舟冲刺</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="festival-mark" aria-hidden="true">
+        <span>艾</span>
+        <span>粽</span>
+        <span>舟</span>
+      </div>
+      <p class="eyebrow">端午安康 · 龙舟竞渡</p>
+      <h1 id="page-title">端午节龙舟冲刺</h1>
+      <p class="intro">点击划桨，让龙舟冲向终点，收集粽子获得加分。</p>
+    </section>
+
+    <section class="game-panel" aria-label="龙舟冲刺游戏">
+      <div class="scoreboard" aria-live="polite">
+        <div class="stat">
+          <span class="stat-label">当前分数</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">倒计时</span>
+          <strong><span id="time">20</span>s</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">冲刺进度</span>
+          <strong><span id="progress">0</span>%</strong>
+        </div>
+      </div>
+
+      <div class="river-wrap">
+        <div class="river" id="river">
+          <div class="bank bank-top" aria-hidden="true">
+            <span>🌿</span>
+            <span>🍃</span>
+            <span>🌿</span>
+            <span>🍃</span>
+          </div>
+
+          <div class="water-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="finish-line" aria-label="终点线">
+            <span>终点</span>
+          </div>
+
+          <button class="zongzi hidden" id="zongzi" type="button" aria-label="粽子奖励">
+            <span class="zongzi-shape"></span>
+            <span class="zongzi-text">+5</span>
+          </button>
+
+          <div class="dragon-boat" id="boat" aria-label="龙舟">
+            <div class="dragon-head" aria-hidden="true">🐲</div>
+            <div class="boat-body">
+              <span class="paddler">🧑</span>
+              <span class="paddle paddle-one"></span>
+              <span class="paddler">🧑</span>
+              <span class="paddle paddle-two"></span>
+              <span class="paddler">🧑</span>
+            </div>
+            <div class="dragon-tail" aria-hidden="true">🎏</div>
+          </div>
+
+          <div class="bank bank-bottom" aria-hidden="true">
+            <span>🍃</span>
+            <span>🌿</span>
+            <span>🍃</span>
+            <span>🌿</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-area" id="message" aria-live="assertive">
+        准备好了吗？按下开始，和龙舟一起出发！
+      </div>
+
+      <div class="controls">
+        <button class="primary-btn" id="startBtn" type="button">开始游戏</button>
+        <button class="paddle-btn" id="paddleBtn" type="button" disabled>划一下</button>
+      </div>
+    </section>
+
+    <section class="blessing" aria-label="端午祝福">
+      <span>愿你一举夺魁</span>
+      <span>粽香满怀</span>
+      <span>端午安康</span>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
