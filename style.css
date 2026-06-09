@@ -96,6 +96,105 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+.online-panel {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 1px solid rgba(22, 122, 87, 0.14);
+  border-radius: 8px;
+  background: rgba(241, 255, 247, 0.78);
+}
+
+.online-actions {
+  display: grid;
+  grid-template-columns: auto minmax(240px, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.join-group {
+  display: flex;
+  min-width: 0;
+  gap: 8px;
+}
+
+.join-group input {
+  width: 100%;
+  min-height: 42px;
+  min-width: 0;
+  padding: 0 12px;
+  border: 1px solid rgba(22, 122, 87, 0.22);
+  border-radius: 999px;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  outline: none;
+}
+
+.join-group input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(22, 122, 87, 0.12);
+}
+
+.net-btn,
+#roomCodeDisplay {
+  min-height: 42px;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.net-btn {
+  padding: 0 14px;
+  color: #ffffff;
+  background: var(--green);
+}
+
+.join-btn {
+  background: var(--blue);
+}
+
+.host-btn {
+  background: var(--red);
+}
+
+.local-btn {
+  color: #4d2a00;
+  background: var(--gold);
+}
+
+.leave-btn {
+  background: #6c7c77;
+}
+
+.net-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.connection-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.connection-line strong {
+  color: var(--green-dark);
+}
+
+#roomCodeDisplay {
+  padding: 0 12px;
+  color: var(--green-dark);
+  background: #ffffff;
+  border: 1px solid rgba(22, 122, 87, 0.16);
+}
+
 .scoreboard {
   display: grid;
   grid-template-columns: 1fr minmax(180px, 0.76fr) 1fr;
@@ -667,6 +766,19 @@ h1 {
 
   .game-panel {
     padding: 12px;
+  }
+
+  .online-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .join-group {
+    flex-direction: column;
+  }
+
+  .net-btn,
+  #roomCodeDisplay {
+    width: 100%;
   }
 
   .scoreboard {
